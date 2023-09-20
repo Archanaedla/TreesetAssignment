@@ -1,0 +1,61 @@
+package cg.tree.set.model;
+import java.util.ArrayList;
+
+
+import java.util.Collections;
+import java.util.List;
+import java.util.TreeSet;
+
+public class AccountData {
+	public static void main(String[] args) {
+		
+		TreeSet<Account> allAccounts = new TreeSet();
+		
+		Account a1 = new Account(2000, 1222,"Archana", "Manthani");
+		Account a2 = new Account(3000, 1223, "Sriya","Hyderabad");
+		Account a3 = new Account(4000, 1224,"Jithendra", "Bangalore");
+		Account a4 = new Account(5000, 1225,"Swathi", "Karimnagar");
+	
+
+		
+		allAccounts.add(a1);
+		allAccounts.add(a2);
+		allAccounts.add(a3);
+		allAccounts.add(a4);
+		
+		for (Account account : allAccounts) {
+			System.out.println(account);
+			
+		}
+		 System.out.println(".....Accounts (Low to High)....");
+		 getAccountsBasedOnBalanceLowToHigh(allAccounts);
+		 
+		 System.out.println(".....Accounts (High to Low)....");
+		 getAcccountsBasedOnBalanceHighToLow(allAccounts);
+		
+		
+	}
+	
+	private static void getAccountsBasedOnBalanceLowToHigh(TreeSet<Account> allAccounts) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void getAcccountsBasedOnBalanceHighToLow(TreeSet<Account> allAccounts)
+	{
+		// Step1 -> convert set to List
+		List<Account> tempList = new ArrayList<>();// or pass as constructor argument
+		tempList.addAll(allAccounts);
+		
+		// Step 2-> create Comprator class Object
+		SortAccountsBasedOnBalanceHighToLow sortCode = new SortAccountsBasedOnBalanceHighToLow();
+		
+		Collections.sort(tempList, sortCode);
+		
+		for (Account account : tempList) {
+			System.out.println(account);
+		}
+		 
+	}
+
+}

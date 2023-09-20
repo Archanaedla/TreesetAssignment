@@ -1,0 +1,15 @@
+package cg.tree.set.model;
+
+import java.util.Comparator;
+
+public class SortAccountsBasedOnBalanceLowToHigh implements Comparator<Account> {
+
+	@Override
+	public int compare(Account ab1, Account ab2) {
+	
+		return ab1.getBalance()-ab2.getBalance();
+	}
+
+	}
+
+	
